@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Link } from "react-router";
 
-export function LoginForm({ className, ...props }) {
+export function RegisterForm({ className, ...props }) {
   return (
     <div
       className={cn("flex flex-col gap-6 w-xs md:w-md", className)}
@@ -19,16 +19,7 @@ export function LoginForm({ className, ...props }) {
               <GalleryVerticalEnd className="size-6" />
             </div>
             <span className="sr-only">TickSys</span>
-            <h1 className="text-xl font-bold">Welcome to TickSys</h1>
-            <div className="text-center text-sm">
-              Don&apos;t have an account?{" "}
-              <Link
-                to="/register"
-                className="underline underline-offset-4 font-semibold"
-              >
-                Sign up
-              </Link>
-            </div>
+            <h1 className="text-xl font-bold">Sign up to TickSys</h1>
           </div>
           <div className="flex flex-col gap-6">
             <div className="grid gap-3">
@@ -37,8 +28,8 @@ export function LoginForm({ className, ...props }) {
             </div>
 
             <Button type="submit">
-              <Link to="/dashboard" className="w-full">
-                Login
+              <Link to="/login" className="w-full">
+                Register
               </Link>
             </Button>
           </div>

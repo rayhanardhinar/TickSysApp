@@ -1,5 +1,11 @@
+import { LoginForm } from "@/components/login-form";
+
 function Login() {
-  return <div>Ini Login</div>;
+  return (
+    <div className="flex justify-center items-center h-screen">
+      <LoginForm />
+    </div>
+  );
 }
 
 export default Login;
