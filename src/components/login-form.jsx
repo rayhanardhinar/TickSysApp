@@ -37,7 +37,7 @@ export function LoginForm({ className, ...props }) {
             </div>
 
             <Button type="submit">
-              <Link to="/dashboard" className="w-full">
+              <Link to="/dashboard/overview" className="w-full">
                 Login
               </Link>
             </Button>

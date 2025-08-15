@@ -1,12 +1,18 @@
 import { Outlet } from "react-router";
+import { SidebarProvider, SidebarTrigger } from "../ui/sidebar";
+import { AppSidebar } from "./AppSidebar";
+import { Card } from "../ui/card";
 
-function DashboardLayout() {
+export default function DashboardLayout() {
   return (
-    <>
-      <div className="text-3xl text-red-500">DashboardLayout</div>
-      <Outlet />
-    </>
+    <SidebarProvider>
+      <AppSidebar />
+      <main className="flex-1 p-4 space-y-4">
+        <SidebarTrigger className="p-6" />
+        <Card className="p-4 mx-auto">
+          <Outlet />
+        </Card>
+      </main>
+    </SidebarProvider>
   );
 }
-
-export default DashboardLayout;

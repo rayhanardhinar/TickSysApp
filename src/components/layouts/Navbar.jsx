@@ -9,14 +9,14 @@ function Navbar() {
   ];
 
   return (
-    <div className="px-4 py-4 bg-blue-400 shadow">
+    <div className="px-4 py-4 bg-primary ">
       <nav className="flex justify-between items-center max-w-7xl mx-auto">
         <ul className="flex gap-6">
           {navItems.map((item) => (
             <li key={item.path}>
               <Link
                 to={item.path}
-                className="text-gray-700 hover:text-blue-500 transition-colors"
+                className="text-primary-foreground hover:text-blue-500 transition-colors"
               >
                 {item.label}
               </Link>
@@ -27,7 +27,7 @@ function Navbar() {
           <li>
             <Link
               to="/login"
-              className="text-gray-700 hover:text-blue-500 transition-colors"
+              className="text-primary-foreground hover:text-blue-500 transition-colors"
             >
               Login
             </Link>
@@ -35,7 +35,7 @@ function Navbar() {
           <li>
             <Link
               to="/register"
-              className="text-gray-700 hover:text-blue-500 transition-colors"
+              className="text-primary-foreground hover:text-blue-500 transition-colors"
             >
               Register
             </Link>
