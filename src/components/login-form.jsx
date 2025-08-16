@@ -20,15 +20,6 @@ export function LoginForm({ className, ...props }) {
             </div>
             <span className="sr-only">TickSys</span>
             <h1 className="text-xl font-bold">Welcome to TickSys</h1>
-            <div className="text-center text-sm">
-              Don&apos;t have an account?{" "}
-              <Link
-                to="/register"
-                className="underline underline-offset-4 font-semibold"
-              >
-                Sign up
-              </Link>
-            </div>
           </div>
           <div className="flex flex-col gap-6">
             <div className="grid gap-3">
@@ -37,11 +28,20 @@ export function LoginForm({ className, ...props }) {
             </div>
 
             <Button type="submit">
-              <Link to="/dashboard/overview" className="w-full">
+              <Link to="/dashboard" className="w-full">
                 Login
               </Link>
             </Button>
+            <div className="text-center text-sm">
+              Don&apos;t have an account?{" "}
+            </div>
+            <Button type="submit">
+              <Link to="/register" className="w-full">
+                Register
+              </Link>
+            </Button>
           </div>
+
           <div className="after:border-border relative text-center text-sm after:absolute after:inset-0 after:top-1/2 after:z-0 after:flex after:items-center after:border-t">
             <span className="bg-background text-muted-foreground relative z-10 px-2">
               Or
