@@ -50,7 +50,7 @@ export function AppSidebar({ ...props }) {
               asChild
               className="data-[slot=sidebar-menu-button]:!p-1.5"
             >
-              <Link href="/dashboard">
+              <Link to="/dashboard">
                 <GalleryVerticalEnd className="!size-5" />
                 <span className="text-base font-semibold">TickSys</span>
               </Link>

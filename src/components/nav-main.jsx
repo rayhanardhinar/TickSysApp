@@ -7,15 +7,15 @@ import {
 } from "@/components/ui/sidebar";
 import { Link } from "react-router";
 
-export function NavMain({ items, ...props }) {
+export function NavMain({ items }) {
   return (
-    <SidebarGroup {...props}>
+    <SidebarGroup>
       <SidebarGroupContent className="flex flex-col gap-2">
         <SidebarMenu>
           {items.map((item) => (
             <SidebarMenuItem key={item.title}>
               <SidebarMenuButton asChild>
-                <Link href={item.url}>
+                <Link to={item.url}>
                   <item.icon />
                   <span>{item.title}</span>
                 </Link>

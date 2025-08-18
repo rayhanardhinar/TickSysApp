@@ -1,4 +1,5 @@
 import { GalleryVerticalEnd } from "lucide-react";
+import { useState } from "react";
 
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -7,12 +8,37 @@ import { Label } from "@/components/ui/label";
 import { Link } from "react-router";
 
 export function LoginForm({ className, ...props }) {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const API_TICKSYS = import.meta.env.VITE_API_TICKSYS;
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    setError("");
+
+    const res = await fetch(`${API_TICKSYS}/login`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, password }),
+    });
+
+    const data = await res.json();
+
+    if (res.ok) {
+      localStorage.setItem("token", data.data.token);
+      window.location.href = "/dashboard";
+    } else {
+      setError(data.message);
+      setPassword("");
+    }
+  }
   return (
     <div
       className={cn("flex flex-col gap-6 w-xs md:w-md", className)}
       {...props}
     >
-      <form>
+      <form onSubmit={handleSubmit}>
         <div className="flex flex-col gap-6">
           <div className="flex flex-col items-center gap-2">
             <div className="flex size-8 items-center justify-center rounded-md">
@@ -24,14 +50,28 @@ export function LoginForm({ className, ...props }) {
           <div className="flex flex-col gap-6">
             <div className="grid gap-3">
               <Label htmlFor="email">Email</Label>
-              <Input id="email" type="email" placeholder="m@example.com" />
+              <Input
+                id="email"
+                type="email"
+                placeholder="m@example.com"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
+            <div className="grid gap-3">
+              <Label htmlFor="email">Password</Label>
+              <Input
+                id="password"
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
             </div>
 
-            <Button type="submit">
-              <Link to="/dashboard" className="w-full">
-                Login
-              </Link>
-            </Button>
+            {error && (
+              <p className="text-red-500 text-sm text-center">{error}</p>
+            )}
+            <Button type="submit">Login</Button>
             <div className="text-center text-sm">
               Don&apos;t have an account?{" "}
             </div>

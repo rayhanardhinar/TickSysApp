@@ -1,5 +1,11 @@
+import { SectionCards } from "@/components/section-cards";
+
 function Overview() {
-  return <div>Ini Overview</div>;
+  return (
+    <div>
+      <SectionCards />
+    </div>
+  );
 }
 
 export default Overview;
