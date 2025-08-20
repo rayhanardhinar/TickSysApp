@@ -1,11 +1,5 @@
-import { ChartAreaInteractive } from "@/components/chart-area-interactive";
-
 function Settings() {
-  return (
-    <div className="px-4 lg:px-6">
-      <ChartAreaInteractive />
-    </div>
-  );
+  return <div>Ini Setting</div>;
 }
 
 export default Settings;
